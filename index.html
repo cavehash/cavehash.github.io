@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter Your Information</h2>
+    
+    <!-- The User Input Form -->
+    <div class="form-group">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput">
+    </div>
+    
+    <div class="form-group">
+        <label for="ageInput">Age:</label>
+        <input type="number" id="ageInput">
+    </div>
+    
+    <div class="form-group">
+        <label for="stateInput">State:</label>
+        <input type="text" id="stateInput">
+    </div>
+    
+    <button onclick="displayGreeting()">Submit</button>
+
+    <!-- The Output Message Area -->
+    <p id="result"></p>
+
+    <!-- The JavaScript Code to Handle the Logic -->
+    <script>
+        function displayGreeting() {
+            // Get values from the input fields
+            const name = document.getElementById('nameInput').value;
+            const age = document.getElementById('ageInput').value;
+            const state = document.getElementById('stateInput').value;
+            
+            // Check if all fields are filled
+            if (name === '' || age === '' || state === '') {
+                document.getElementById('result').innerText = 'Please fill out all fields.';
+                document.getElementById('result').style.color = 'red';
+                return;
+            }
+            
+            // Display the final greeting message
+            const message = `Hi ${name}! You are ${age} years old, and you live in ${state}.`;
+            document.getElementById('result').innerText = message;
+            document.getElementById('result').style.color = 'green';
+        }
+    </script>
+
+</body>
+</html>
